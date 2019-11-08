@@ -24,4 +24,4 @@ while True:
   if (RPIO.input(10) == False):
       os.system("sudo poweroff")
       break
-  time.sleep(0.1)
+  time.sleep(0.01)
