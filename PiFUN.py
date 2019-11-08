@@ -8,12 +8,10 @@
 import RPIO
 import time
 import os
-import board
-import neopixel
 #
+RPIO.setwarnings(False)
 RPIO.cleanup()
 #led
-pixel = neopixel.NeoPixel(board.D18, 1, pixel_order=neopixel.RGB)
 #segnale di vitalità inviato
 RPIO.setup(23, RPIO.OUT)
 #segnale di vitalità ricevuto
