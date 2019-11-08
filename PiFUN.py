@@ -6,7 +6,7 @@
 #rev081119
 #
 import RPIO
-#import time
+import time
 import os
 #
 RPIO.cleanup()
