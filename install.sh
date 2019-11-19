@@ -81,6 +81,7 @@ else
 fi
 echo "PiFUN watchdog OK"
 echo
+##
 echo
 echo -n "REBOOT NOW? [y/N]"
 read
