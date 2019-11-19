@@ -1,9 +1,9 @@
-#!/usr/bin/python
+#! /usr/bin/python3
 #
 #THINKEDINTHESEA
 #PiFUN
 #
-#rev081119
+#rev191119
 #
 import RPIO
 import time
@@ -12,16 +12,16 @@ import os
 RPIO.setwarnings(False)
 RPIO.cleanup()
 #led
-#segnale di vitalità inviato
+#watchdog signal to the PiFUN board
 RPIO.setup(23, RPIO.OUT)
-#segnale di vitalità ricevuto
+#watchdog signal received from PiFUN board
 RPIO.setup(10, RPIO.IN)
-#start mettiamo su la vitalità
+#start, make watchdog high
 RPIO.output(23, True)
 #
-#ciclo principale
+#
 while True:
-  #se perdiamo la vitalità ricevuta spegniamo
+  #check for watchdog signal received
   if (RPIO.input(10) == False):
       os.system("sudo poweroff")
       break
