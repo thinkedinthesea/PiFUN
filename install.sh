@@ -3,7 +3,7 @@
 #THINKEDINTHESEA
 #PiFUN
 #
-#rev08112019
+#rev19112019
 #
 if [ $(id -u) -ne 0 ]; then
 	echo "Installer must be run as root."
@@ -16,13 +16,18 @@ echo "This script downloads and install"
 echo "PiFUN, a GPIO-to-keypress board"
 echo "with one WS2812b led"
 echo
+echo "1. Adafruit retrogame script"
+echo "2. PiFUN python code"
+echo "3. PiFUN python script for WS2812B"
+echo
+echo
 #
 #############################################################
 echo -n "Downloading, installing PiFUN..."
 #Download to tmpfile because might already be running
 curl -f -s -o /tmp/PiFUN https://raw.githubusercontent.com/thinkedinthesea/PiFUN/master/PiFUN.py
 if [ $? -eq 0 ]; then
-	mv /tmp/PiFUN /usr/local/bin
+	mv /tmp/PiFUN.py /usr/local/bin
 	chmod 755 /usr/local/bin/PiFUN.py
 	echo "OK"
 else
