@@ -17,8 +17,8 @@ echo "PiFUN, a GPIO-to-keypress board"
 echo "with one WS2812b led"
 echo
 echo "1. Adafruit retrogame script"
-echo "2. PiFUN python code"
-echo "3. PiFUN python script for WS2812B"
+echo "2. PiFUN python code for watchdog"
+echo "3. PiFUN python code for WS2812B"
 echo
 echo
 #
@@ -58,7 +58,7 @@ echo -n "Performing other system configuration..."
 # Add udev rule (will overwrite if present)
 echo "SUBSYSTEM==\"input\", ATTRS{name}==\"retrogame\", ENV{ID_INPUT_KEYBOARD}=\"1\"" > /etc/udev/rules.d/10-retrogame.rules
 
-# Start on boot
+# Start retrogame on boot
 grep retrogame /etc/rc.local >/dev/null
 if [ $? -eq 0 ]; then
 	# retrogame already in rc.local, but make sure correct:
@@ -67,8 +67,19 @@ else
 	# Insert retrogame into rc.local before final 'exit 0'
 	sed -i "s/^exit 0/\/usr\/local\/bin\/retrogame \&\\nexit 0/g" /etc/rc.local >/dev/null
 fi
-echo "OK"
-
+echo "Adafruit retrogame OK"
+echo
+# Start PiFUN on boot
+grep PiFUN /etc/rc.local >/dev/null
+if [ $? -eq 0 ]; then
+	# PiFUN already in rc.local, but make sure correct:
+	sed -i "s/^.*PiFUN.*$/\python3 /usr\/local\/bin\/PiFUN.py \&/g" /etc/rc.local >/dev/null
+else
+	# Insert PiFUN into rc.local before final 'exit 0'
+	sed -i "s/^exit 0/\python3 /usr\/local\/bin\/PiFUN.py \&\\nexit 0/g" /etc/rc.local >/dev/null
+fi
+echo "PiFUN watchdog OK"
+echo
 echo
 echo -n "REBOOT NOW? [y/N]"
 read
