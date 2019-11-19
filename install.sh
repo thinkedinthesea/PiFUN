@@ -25,7 +25,7 @@ echo
 #############################################################
 echo -n "Downloading, installing PiFUN..."
 #Download to tmpfile because might already be running
-curl -f -s -o /tmp/PiFUN https://raw.githubusercontent.com/thinkedinthesea/PiFUN/master/PiFUN.py
+curl -f -s -o /tmp/PiFUN.py https://raw.githubusercontent.com/thinkedinthesea/PiFUN/master/PiFUN.py
 if [ $? -eq 0 ]; then
 	mv /tmp/PiFUN.py /usr/local/bin
 	chmod 755 /usr/local/bin/PiFUN.py
@@ -69,14 +69,15 @@ else
 fi
 echo "Adafruit retrogame OK"
 echo
+
 # Start PiFUN on boot
 grep PiFUN /etc/rc.local >/dev/null
 if [ $? -eq 0 ]; then
-	# PiFUN already in rc.local, but make sure correct:
-	sed -i "s/^.*PiFUN.*$/\python3 /usr\/local\/bin\/PiFUN.py \&/g" /etc/rc.local >/dev/null
+	# PiFUN already in rc.local, do nothing
+	#sed -i "s/^.*PiFUN.*$/\python3 /usr\/local\/bin\/PiFUN.py \&/g" /etc/rc.local >/dev/null
 else
 	# Insert PiFUN into rc.local before final 'exit 0'
-	sed -i "s/^exit 0/\python3 /usr\/local\/bin\/PiFUN.py \&\\nexit 0/g" /etc/rc.local >/dev/null
+	sed -i "s/^exit 0/\python3 \/usr\/local\/bin\/PiFUN.py \&\\nexit 0/g" /etc/rc.local >/dev/null
 fi
 echo "PiFUN watchdog OK"
 echo
