@@ -58,6 +58,10 @@ echo -n "Performing other system configuration..."
 # Add udev rule (will overwrite if present)
 echo "SUBSYSTEM==\"input\", ATTRS{name}==\"retrogame\", ENV{ID_INPUT_KEYBOARD}=\"1\"" > /etc/udev/rules.d/10-retrogame.rules
 
+# install libs
+sudo pip3 install rpi_ws281x adafruit-circuitpython-neopixel
+echo
+
 # Start retrogame on boot
 grep retrogame /etc/rc.local >/dev/null
 if [ $? -eq 0 ]; then
