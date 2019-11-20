@@ -1,4 +1,7 @@
 # PiFUN
 
 install:
-sudo pip3 install rpi_ws281x adafruit-circuitpython-neopixel
+
+cd /home/pi
+curl https://raw.githubusercontent.com/thinkedinthesea/PiFUN/master/install.sh > install.sh
+sudo bash install.sh
