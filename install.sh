@@ -77,6 +77,7 @@ echo
 # Start PiFUN on boot
 grep PiFUN /etc/rc.local >/dev/null
 if [ $? -eq 0 ]; then
+	echo
 	# PiFUN already in rc.local, do nothing
 	#sed -i "s/^.*PiFUN.*$/\python3 /usr\/local\/bin\/PiFUN.py \&/g" /etc/rc.local >/dev/null
 else
