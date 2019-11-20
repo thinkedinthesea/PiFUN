@@ -5,7 +5,7 @@
 #
 #rev191119
 #
-import RPIO
+import RPi.GPIO as RPIO
 import time
 import os
 #
