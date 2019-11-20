@@ -54,7 +54,7 @@ else
 fi
 
 echo -n "Performing other system configuration..."
-
+echo
 # Add udev rule (will overwrite if present)
 echo "SUBSYSTEM==\"input\", ATTRS{name}==\"retrogame\", ENV{ID_INPUT_KEYBOARD}=\"1\"" > /etc/udev/rules.d/10-retrogame.rules
 
