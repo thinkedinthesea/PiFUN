@@ -12,6 +12,7 @@ if [ $(id -u) -ne 0 ]; then
 fi
 clear
 #
+echo "------------------------------------------------------------------"
 echo "This script downloads and install"
 echo "PiFUN, a GPIO-to-keypress board"
 echo "with one WS2812b led"
@@ -23,11 +24,12 @@ echo "- Install PiFUN.py and led.py scripts in /usr/local/bin."
 echo
 echo "WARNING:"
 echo "After install complete, shutdown and connect PiFUN board."
+echo "------------------------------------------------------------------"
 echo
 echo -n "CONTINUE? [y/N] "
 read
 if [[ ! "$REPLY" =~ ^(yes|y|Y)$ ]]; then
-	echo "Canceled."
+	echo "Cancelled."
 	exit 0
 fi
 #
@@ -77,7 +79,6 @@ sudo pip3 install rpi_ws281x adafruit-circuitpython-neopixel
 echo
 echo
 echo "Start retrogame on boot"
-echo
 # Start retrogame on boot
 grep retrogame /etc/rc.local >/dev/null
 if [ $? -eq 0 ]; then
@@ -90,7 +91,6 @@ fi
 echo "Adafruit retrogame OK"
 echo
 echo "Start PiFUN on boot"
-echo
 # Start PiFUN on boot
 grep PiFUN /etc/rc.local >/dev/null
 if [ $? -eq 0 ]; then
