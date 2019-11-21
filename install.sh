@@ -16,11 +16,20 @@ echo "This script downloads and install"
 echo "PiFUN, a GPIO-to-keypress board"
 echo "with one WS2812b led"
 echo
-echo "1. Adafruit retrogame script"
-echo "2. PiFUN python code for watchdog"
-echo "3. PiFUN python code for WS2812B"
+echo "- Update package index files (apt-get update)."
+echo "- Install Python libraries."
+echo "- Install Adafruit retrogame script."
+echo "- Install PiFUN.py and led.py scripts in /usr/local/bin."
 echo
+echo "WARNING:"
+echo "After install complete, shutdown and connect PiFUN board."
 echo
+echo -n "CONTINUE? [y/N] "
+read
+if [[ ! "$REPLY" =~ ^(yes|y|Y)$ ]]; then
+	echo "Canceled."
+	exit 0
+fi
 #
 #############################################################
 echo -n "Downloading, installing PiFUN..."
@@ -56,15 +65,19 @@ fi
 echo -n "Performing other system configuration..."
 echo
 echo
-
+echo "Add udev rule (will overwrite if present)"
+echo
 # Add udev rule (will overwrite if present)
 echo "SUBSYSTEM==\"input\", ATTRS{name}==\"retrogame\", ENV{ID_INPUT_KEYBOARD}=\"1\"" > /etc/udev/rules.d/10-retrogame.rules
-
+echo "install libs"
+echo
 # install libs
+apt-get update
 sudo pip3 install rpi_ws281x adafruit-circuitpython-neopixel
 echo
 echo
-
+echo "Start retrogame on boot"
+echo
 # Start retrogame on boot
 grep retrogame /etc/rc.local >/dev/null
 if [ $? -eq 0 ]; then
@@ -76,7 +89,8 @@ else
 fi
 echo "Adafruit retrogame OK"
 echo
-
+echo "Start PiFUN on boot"
+echo
 # Start PiFUN on boot
 grep PiFUN /etc/rc.local >/dev/null
 if [ $? -eq 0 ]; then
