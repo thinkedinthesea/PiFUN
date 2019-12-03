@@ -3,7 +3,7 @@
 #THINKEDINTHESEA
 #PiFUN
 #
-#rev19112019
+#rev03122019
 #
 if [ $(id -u) -ne 0 ]; then
 	echo "Installer must be run as root."
@@ -20,7 +20,7 @@ echo
 echo "- Update package index files (apt-get update)."
 echo "- Install Python libraries."
 echo "- Install Adafruit retrogame script."
-echo "- Install PiFUN.py and led.py scripts in /usr/local/bin."
+echo "- Install led.py scripts in /usr/local/bin."
 echo
 echo "WARNING:"
 echo "After install complete, shutdown and connect PiFUN board."
@@ -34,12 +34,12 @@ if [[ ! "$REPLY" =~ ^(yes|y|Y)$ ]]; then
 fi
 #
 #############################################################
-echo -n "Downloading, installing PiFUN..."
+echo -n "Downloading, installing LED.py..."
 #Download to tmpfile because might already be running
-curl -f -s -o /tmp/PiFUN.py https://raw.githubusercontent.com/thinkedinthesea/PiFUN/master/PiFUN.py
+curl -f -s -o /tmp/LED.py https://raw.githubusercontent.com/thinkedinthesea/PiFUN/master/LED.py
 if [ $? -eq 0 ]; then
-	mv /tmp/PiFUN.py /usr/local/bin
-	chmod 755 /usr/local/bin/PiFUN.py
+	mv /tmp/LED.py /usr/local/bin
+	chmod 755 /usr/local/bin/LED.py
 	echo "OK"
 else
 	echo "ERROR"
@@ -90,16 +90,16 @@ else
 fi
 echo "Adafruit retrogame OK"
 echo
-echo "Start PiFUN on boot"
+echo "Start LED on boot"
 # Start PiFUN on boot
-grep PiFUN /etc/rc.local >/dev/null
+grep LED /etc/rc.local >/dev/null
 if [ $? -eq 0 ]; then
 	echo
-	# PiFUN already in rc.local, do nothing
+	# LED already in rc.local, do nothing
 	#sed -i "s/^.*PiFUN.*$/\python3 /usr\/local\/bin\/PiFUN.py \&/g" /etc/rc.local >/dev/null
 else
-	# Insert PiFUN into rc.local before final 'exit 0'
-	sed -i "s/^exit 0/\python3 \/usr\/local\/bin\/PiFUN.py \&\\nexit 0/g" /etc/rc.local >/dev/null
+	# Insert LED into rc.local before final 'exit 0'
+	sed -i "s/^exit 0/\python3 \/usr\/local\/bin\/LED.py \&\\nexit 0/g" /etc/rc.local >/dev/null
 fi
 echo "PiFUN watchdog OK"
 echo
