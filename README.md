@@ -1,9 +1,9 @@
 # PiFUN
 
-Addon board for Raspberry Pi
-
-
-
+Addon board for Raspberry Pi  
+  
+![alt text](https://ibb.co/jyHjNPR)
+  
 PiFUN.ino   -   Arduino source code for attiny84   
 final.stl   -   3D Case   
 install.sh  -   Install script   
