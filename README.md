@@ -1,6 +1,7 @@
 # PiFUN
 
-Addon board for Raspberry Pi  
+Addon board for Raspberry Pi. It provides a simple way to start using your Raspberry Pi as a complete and portable Retrogaming machine.  
+
   
 ![Screenshot](IMG_20200110_174037.jpg)  
   
