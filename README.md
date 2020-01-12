@@ -4,7 +4,8 @@ Addon board for Raspberry Pi. It provides a simple way to start using your Raspb
 
   
 ![Screenshot](IMG_20200110_174037.jpg)  
-  
+![Screenshot](IMG_20200110_173826.jpg)  
+    
 PiFUN.ino   -   Arduino source code for attiny84   
 final.stl   -   3D Case   
 install.sh  -   Install script   
