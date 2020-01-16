@@ -101,15 +101,15 @@ else
 	# Insert LED into rc.local before final 'exit 0'
 	sed -i "s/^exit 0/\python3 \/usr\/local\/bin\/LED.py \&\\nexit 0/g" /etc/rc.local >/dev/null
 fi
-echo "PiFUN watchdog OK"
+echo "PiFUN LED OK"
 echo
 ##
 echo
-echo -n "REBOOT NOW? [y/N]"
+echo -n "SHUTDOWN NOW? [y/N]"
 read
 if [[ "$REPLY" =~ ^(yes|y|Y)$ ]]; then
-	echo "Reboot started..."
-	reboot
+	echo "Shutdown started..."
+	shutdown
 #else
 	echo
 	echo "Done"
