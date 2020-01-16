@@ -3,7 +3,7 @@
 Addon board for Raspberry Pi. It provides a simple way to start using your Raspberry Pi as a complete and portable Retrogaming machine.  
 
   
-![Screenshot](IMG_20200110_174037.jpg)  
+![Screenshot](/images/IMG_20200110_174037.jpg)  
 ![Screenshot](IMG_20200110_173826.jpg)  
 ![Screenshot](IMG_20200110_173849.jpg)  
     
