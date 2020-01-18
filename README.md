@@ -19,3 +19,9 @@ how to install:
 cd /home/pi\
 curl https://raw.githubusercontent.com/thinkedinthesea/PiFUN/master/install.sh > install.sh\
 sudo bash install.sh
+  
+  
+Credits:
+Adafruit - https://www.adafruit.com/
+Retropie - https://retropie.org.uk/
+Emulationstation - https://emulationstation.org/
