@@ -12,7 +12,8 @@ final.stl       -   3D Case
 install.sh      -   Install script   
 led.py          -   Python script for WS2812B led   
 retrogame.cfg   -   Button config for Adafruit rertogame  
-
+  
+  
 how to install:
 
 cd /home/pi\
