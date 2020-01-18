@@ -22,6 +22,6 @@ sudo bash install.sh
   
   
 Credits:
-Adafruit - https://www.adafruit.com/
-Retropie - https://retropie.org.uk/
-Emulationstation - https://emulationstation.org/
+Adafruit - https://www.adafruit.com/  
+Retropie - https://retropie.org.uk/  
+Emulationstation - https://emulationstation.org/  
