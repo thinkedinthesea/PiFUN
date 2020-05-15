@@ -100,7 +100,7 @@ if [ $? -eq 0 ]; then
 	#sed -i "s/^.*PiFUN.*$/\python3 /usr\/local\/bin\/PiFUN.py \&/g" /etc/rc.local >/dev/null
 else
 	# Insert LED into rc.local before final 'exit 0'
-	sed -i "s/^exit 0/\python3 \/usr\/local\/bin\/LED.py \&\\nexit 0/g" /etc/rc.local >/dev/null
+	sed -i "s/^exit 0/\python3 \/usr\/local\/bin\/led.py \&\\nexit 0/g" /etc/rc.local >/dev/null
 fi
 echo "PiFUN LED OK"
 echo
