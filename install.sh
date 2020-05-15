@@ -36,10 +36,10 @@ fi
 #############################################################
 echo -n "Downloading, installing LED.py..."
 #Download to tmpfile because might already be running
-curl -f -s -o /tmp/LED.py https://raw.githubusercontent.com/thinkedinthesea/PiFUN/master/led.py
+curl -f -s -o /tmp/led.py https://raw.githubusercontent.com/thinkedinthesea/PiFUN/master/led.py
 if [ $? -eq 0 ]; then
-	mv /tmp/LED.py /usr/local/bin
-	chmod 755 /usr/local/bin/LED.py
+	mv /tmp/led.py /usr/local/bin
+	chmod 755 /usr/local/bin/led.py
 	echo "OK"
 else
 	echo "ERROR"
