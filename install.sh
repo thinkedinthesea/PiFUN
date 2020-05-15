@@ -75,6 +75,7 @@ echo "install libs"
 echo
 # install libs
 apt-get update
+sudo apt install python3-pip
 sudo pip3 install rpi_ws281x adafruit-circuitpython-neopixel
 echo
 echo
